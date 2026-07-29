@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+
+metadata:
+  name: flask-alertmanager
+  namespace: monitoring
+
+spec:
+
+  route:
+    receiver: webhook
+    groupBy:
+      - alertname
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 1h
+
+  receivers:
+
+    - name: webhook
+
+      webhookConfigs:
+
+        - urlSecret:
+
+            name: alertmanager-webhook
+
+            key: webhook-url
+
+          sendResolved: true

@@ -1,0 +1,6 @@
+mcp
+kubernetes
+requests
+python-dotenv
+pyyaml
+httpx

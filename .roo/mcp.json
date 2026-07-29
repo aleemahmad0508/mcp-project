@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "devops-mcp": {
+      "command": "/home/aleem/mcp-project/.venv/bin/python",
+      "args": [
+        "/home/aleem/mcp-project/mcp/server.py"
+      ],
+      "cwd": "/home/aleem/mcp-project/mcp"
+    }
+  }
+}
