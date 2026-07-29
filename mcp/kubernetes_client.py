@@ -1,14 +1,21 @@
 from kubernetes import client, config
+from kubernetes.config.config_exception import ConfigException
 
-# Load kubeconfig
-config.load_kube_config()
+# Load Kubernetes configuration
+try:
+    # Running inside a Kubernetes cluster
+    config.load_incluster_config()
+    print("Using in-cluster Kubernetes configuration")
+except ConfigException:
+    # Running locally
+    config.load_kube_config()
+    print("Using local kubeconfig")
 
 # Kubernetes Core API
 v1 = client.CoreV1Api()
 
 
 def get_pods(namespace="default"):
-
     pods = v1.list_namespaced_pod(namespace)
 
     result = []
@@ -25,7 +32,6 @@ def describe_pod(
     pod_name,
     namespace="default",
 ):
-
     pod = v1.read_namespaced_pod(
         name=pod_name,
         namespace=namespace,
@@ -44,7 +50,6 @@ def get_logs(
     namespace="default",
     lines=100,
 ):
-
     return v1.read_namespaced_pod_log(
         name=pod_name,
         namespace=namespace,
