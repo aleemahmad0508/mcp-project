@@ -1,3 +1,8 @@
 {
-	"mcpServers": {}
+  "mcpServers": {
+    "devops-mcp": {
+      "type": "streamable-http",
+      "url": "http://192.168.49.2:30080/mcp"
+    }
+  }
 }
