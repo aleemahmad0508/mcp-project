@@ -32,9 +32,7 @@ def get_application_status(app):
 def get_cpu_usage():
     return prometheus.get_cpu_usage()
 
-@mcp.tool()
-def run_query(query):
-    return prometheus.run_query(query)
+
 
 
 @mcp.tool()

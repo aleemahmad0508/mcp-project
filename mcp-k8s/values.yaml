@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: aleemahmad2/mcp-server
-  tag: v9
+  tag: v10
   pullPolicy: IfNotPresent
 
 service:

@@ -24,6 +24,8 @@ def get_application_status(app_name: str):
     response = requests.get(
         url,
         headers=headers,
+        verify = False
+               
     )
 
     response.raise_for_status()
