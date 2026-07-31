@@ -1,13 +1,8 @@
-from mcp.server.fastmcp import FastMCP
+from mcp_instance import mcp
 
-mcp = FastMCP(
-    "devops-mcp",
-    host="0.0.0.0",
-    port=8000,
-)
-
+print("importing tools .....")
 import tools
-
+print("tools are imported successfully...")
 if __name__ == "__main__":
     print("Starting Kubernetes MCP Server...")
     mcp.run(transport="streamable-http")

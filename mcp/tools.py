@@ -1,4 +1,6 @@
-from server import mcp
+from mcp_instance import mcp
+
+print("loading tools.py")
 
 import kubernetes_client
 import argocd
@@ -34,3 +36,6 @@ def get_cpu_usage():
 @mcp.tool()
 def get_alert_status():
     return alertmanager.get_alerts()
+
+
+print("Finished registering tools")
