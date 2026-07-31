@@ -15,8 +15,15 @@ except ConfigException:
 v1 = client.CoreV1Api()
 
 
-def get_pods(namespace="default"):
-    pods = v1.list_namespaced_pod(namespace)
+def get_pods(namespace: str = "default"):
+    """
+    Get all pods from the given namespace.
+    """
+
+    pods = v1.list_namespaced_pod(namespace=namespace)
+
+    if not pods.items:
+        return f"No pods found in namespace '{namespace}'."
 
     result = []
 

@@ -9,8 +9,8 @@ import alertmanager
 
 
 @mcp.tool()
-def get_pods():
-    return kubernetes_client.get_pods()
+def get_pods(namespace: str = "default"):
+    return kubernetes_client.get_pods(namespace)
 
 
 @mcp.tool()
@@ -31,6 +31,10 @@ def get_application_status(app):
 @mcp.tool()
 def get_cpu_usage():
     return prometheus.get_cpu_usage()
+
+@mcp.tool()
+def run_query(query):
+    return prometheus.run_query()
 
 
 @mcp.tool()

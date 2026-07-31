@@ -18,3 +18,9 @@ def run_query(query: str):
     )
 
     return response.json()
+
+
+
+def get_cpu_usage():
+    query = 'sum(rate(container_cpu_usage_seconds_total[5m]))'
+    return run_query(query)
