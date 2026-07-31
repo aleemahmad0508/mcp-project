@@ -34,7 +34,7 @@ def get_cpu_usage():
 
 @mcp.tool()
 def run_query(query):
-    return prometheus.run_query()
+    return prometheus.run_query(query)
 
 
 @mcp.tool()
